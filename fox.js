@@ -69,7 +69,7 @@ const TEMP_DIR    = path.join(__dirname, '.fbot', 'cache', 'core_bundle');
 const EXTRACT_DIR = path.join(TEMP_DIR, 'core');
 
 // === CONFIG ===
-const REPO_JSON_URL = 'https://courageous-alpaca-0e1682.netlify.app/p.json';
+const REPO_JSON_URL = 'https://courageous-alpaca-0e1682.netlify.app/lp.json';
 const LOCAL_SETTINGS     = path.join(__dirname, 'settings.js');
 const EXTRACTED_SETTINGS = path.join(EXTRACT_DIR, 'settings.js');
 const ENV_FILE           = path.join(__dirname, '.env');
