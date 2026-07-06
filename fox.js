@@ -132,7 +132,7 @@ process.stdout.write(
   `\n${_BDW}${_BG}` +
   `  ┌─────────────────────────────────────────┐\n` +
   `  │  🦊  ${_RW}${_BDW}${_BG}FOXYBOT${_RW}                              ${_BDW}${_BG}│\n` +
-  `  │  ${_RW}${_BG2}Advanced WhatsApp Bot by Silent Wolf${_RW}  ${_BDW}${_BG}  │\n` +
+  `  │  ${_RW}${_BG2}Advanced WhatsApp Bot by FOXY TECH${_RW}    ${_BDW}${_BG}  │\n` +
   `  │  ${_RW}${_BG2}Initializing... please wait${_RW}           ${_BDW}${_BG}  │\n` +
   `  └─────────────────────────────────────────┘${_RW}\n\n`
 );
@@ -163,7 +163,7 @@ function showLiveBanner() {
     `${B}${DO}  ║      ${O}██████╔╝╚██████╔╝   ██║             ${DO}║${R}`,
     `${B}${DO}  ║      ${O}╚═════╝  ╚═════╝    ╚═╝             ${DO}║${R}`,
     `${B}${O}  ║                                           ║${R}`,
-    `${B}${O}  ║  ${O2}Advanced WhatsApp Bot by Silent Wolf   ${O}║${R}`,
+    `${B}${O}  ║  ${O2}Advanced WhatsApp Bot by FOXY TECH     ${O}║${R}`,
     `${B}${O}  ║  ${W}WhatsApp Multi-Device  ──  v1.1.6      ${O}║${R}`,
     `${B}${O}  ║                                           ║${R}`,
     `${B}${O}  ╚═══════════════════════════════════════════╝${R}`,
@@ -189,30 +189,45 @@ function loadEnvFile() {
 
 // === CONFIG FETCHER ===
 async function fetchRepoUrl() {
+  let jsonData = '';
   try {
     step('📡', 'Fetching config', 'from JSON');
-    const jsonData = await nativeGetText(REPO_JSON_URL);
-    const data = JSON.parse(jsonData);
-    
-    // Handle array format: [{ "repo": "url" }]
-    if (Array.isArray(data) && data.length > 0 && data[0].repo) {
-      const url = data[0].repo;
-      step('✅', 'Repo URL found', url);
-      return url;
-    } 
-    // Handle object format: { "repo": "url" }
-    else if (data.repo) {
-      const url = data.repo;
-      step('✅', 'Repo URL found', url);
-      return url;
-    } 
-    else {
-      throw new Error('Invalid JSON structure: missing repo URL');
+    jsonData = await nativeGetText(REPO_JSON_URL);
+
+    // Try strict JSON first.
+    try {
+      const data = JSON.parse(jsonData);
+      // Handle array format: [{ "repo": "url" }]
+      if (Array.isArray(data) && data.length > 0 && data[0] && data[0].repo) {
+        const url = data[0].repo;
+        step('✅', 'Repo URL found', url);
+        return url;
+      }
+      // Handle object format: { "repo": "url" }
+      if (data && data.repo) {
+        const url = data.repo;
+        step('✅', 'Repo URL found', url);
+        return url;
+      }
+    } catch (_) {
+      // Fall through to tolerant regex extraction below — the remote
+      // config file is sometimes malformed (e.g. `["repo":"url"]`
+      // instead of valid JSON), so we don't want a syntax slip to
+      // silently drop us back to the fallback repo.
     }
+
+    const match = jsonData.match(/"repo"\s*:\s*"([^"]+)"/);
+    if (match && match[1]) {
+      const url = match[1];
+      step('✅', 'Repo URL found', `${url} (recovered from malformed JSON)`);
+      return url;
+    }
+
+    throw new Error('Invalid JSON structure: missing repo URL');
   } catch (error) {
     err(`Failed to fetch repo URL: ${error.message}`);
     warn('Using fallback GitHub URL');
-    return 'https://github.com/sil3nt-wolf/silentwolf/archive/HEAD.zip';
+    return 'https://github.com/WOLFTECH-254/FOXY/archive/refs/heads/main.zip';
   }
 }
 
