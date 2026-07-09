@@ -49,7 +49,14 @@
 </p>
 <br>
 
-
+<p align="center">  
+<strong>DEPLOY</strong>
+<br>
+<a href="https://7-w.vercel.app/foxy.html" target="_blank">
+    <img alt="Deploy FOXY-BOT" src="https://img.shields.io/badge/DEPLOY%20NOW-100000?style=for-the-badge&logo=vercel&logoColor=white&labelColor=darkorange&color=darkgreen"/>
+</a>
+</p>
+<br>
 <div align="center"> 
   <a href="https://git.io/typing-svg"> 
     <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=50&pause=1000&color=ff6600&center=true&width=910&height=100&lines=FOXY+BOT;Forged+in+Fire;Powered+by+AI;Enhanced+by+Fox+Spirit" alt="Typing SVG" />
