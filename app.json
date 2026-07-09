@@ -1,10 +1,10 @@
 {
   "name": "FOXY BOT",
   "description": "Smart WhatsApp Bot powered by AI — auto-fetches and runs the latest bot build on every deploy.",
-  "logo": "https://i.ibb.co/B5yqnN6H/Chat-GPT-Image-May-22-2026-03-34-34-PM.png",
+  "logo": "https://i.ibb.co/1GqxkwSb/foxybot.png",
   "keywords": ["whatsapp", "bot", "foxybot", "baileys", "ai", "session"],
-  "repository": "https://github.com/WOLFTECH-254/FOXY",
-  "website": "https://github.com/WOLFTECH-254/FOXY",
+  "repository": "https://github.com/WOLVAREX/FOXY",
+  "website": "https://github.com/WOLVAREX/FOXY",
   "scripts": {
     "start": "node --no-warnings --expose-gc --max-old-space-size=1024 --max-semi-space-size=64 --experimental-global-webcrypto fox.js"
   },
