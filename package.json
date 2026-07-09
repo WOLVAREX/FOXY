@@ -1,21 +1,94 @@
 {
-  "name": "foxy-bot",
+  "name": "FOXY-BOT",
   "version": "1.0.0",
-  "description": "FOXY BOT - Smart WhatsApp Bot powered by AI",
-  "main": "index.js",
-  "scripts": {
-    "start": "node fox.js",
-    "dev": "node fox.js"
-  },
+"description": "FOXY BOT - Smart WhatsApp Bot powered by AI",
   "keywords": [
     "whatsapp",
     "bot",
-    "ai"
+    "baileys",
+    "silent-wolf",
+    "auto-restart",
+    "prefix",
+    "heartbeat",
+    "monitor",
+    "session-protection"
   ],
-  "author": "WOLFTECH-254",
-  "license": "ISC",
+  "homepage": "https://github.com/WOLVAREX/FOXY#readme",
+  "bugs": {
+    "url": "https://github.com/WOLVAREX/FOXY/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WOLVAREX/FOXY.git"
+  },
+  "license": "MIT",
+  "author": "WOLVAREX",
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "postinstall": "node -e \"try{require('./scripts/patch-modules.cjs')}catch(e){}\"",
+    "start": "node --no-warnings --expose-gc --max-old-space-size=1024 --max-semi-space-size=64 --experimental-global-webcrypto index.js",
+    "dev": "node --no-warnings index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@hapi/boom": "^10.0.1",
+    "@iamtraction/google-translate": "^2.0.1",
+    "@whiskeysockets/baileys": "7.0.0-rc13",
     "adm-zip": "^0.5.17",
-    "express": "^5.2.1"
+    "axios": "^1.14.0",
+    "baileys": "7.0.0-rc13",
+    "better-sqlite3": "^12.8.0",
+    "chalk": "^4.1.2",
+    "chess.js": "^1.4.0",
+    "docx": "^9.6.1",
+    "dotenv": "^17.4.0",
+    "exceljs": "^4.4.0",
+    "express": "^5.2.1",
+    "ffmpeg-static": "^5.3.0",
+    "file-type": "^21.3.4",
+    "form-data": "^4.0.5",
+    "gifted-btns": "^1.0.2",
+    "glob": "^11.1.0",
+    "jsdom": "^27.4.0",
+    "mammoth": "^1.12.0",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.6.1",
+    "mumaker": "^2.0.0",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.3.2",
+    "node-schedule": "^2.1.1",
+    "node-webpmux": "^3.2.1",
+    "openai": "^6.33.0",
+    "pdf-parse": "^2.4.5",
+    "pdfkit": "^0.18.0",
+    "pg": "^8.20.0",
+    "pino": "^8.21.0",
+    "pptxgenjs": "^4.0.1",
+    "qrcode-terminal": "^0.12.0",
+    "ruhend-scraper": "^9.0.8",
+    "sharp": "^0.34.5",
+    "sql.js": "^1.14.1",
+    "systeminformation": "^5.31.5",
+    "ws": "^8.20.0"
+  },
+  "optionalDependencies": {
+    "canvas": "^3.0.0",
+    "sharp": "^0.33.5",
+    "formdata-node": "^6.0.3",
+    "qrcode": "^1.5.4",
+    "yt-search": "^2.13.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.14",
+    "pm2": "^5.4.3"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }
