@@ -25,7 +25,7 @@
 <div align="center">    
 <strong> FORK REPO </strong>
     <br>
-  <a href="https://github.com/WOLFTECH-254/FOXY" target="_blank">
+  <a href="https://github.com/WOLVAREX/FOXY" target="_blank">
     <img src="https://img.shields.io/badge/Fork%20Repo-100000?style=for-the-badge&logo=github&logoColor=white&labelColor=darkblue&color=darkorange" alt="FORK REPO"/>
   </a>
 </div>
@@ -34,7 +34,7 @@
 <div align="center">
 <strong> SESSION PAIR </strong>
     <br>
-  <a href="#" target="_blank">
+  <a href="foxypair.xwolf.space" target="_blank">
     <img src="https://img.shields.io/badge/Pair%20Code-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=darkblue&color=darkgreen" alt="PAIR"/>
   </a>
 </div>
@@ -43,7 +43,7 @@
 <p align="center">  
 <strong> DOWNLOAD ZIP </strong>
     <br>
-    <a href="https://github.com/WOLFTECH-254/FOXY/archive/refs/heads/main.zip" target="_blank">
+    <a href="https://github.com/WOLVAREX/FOXY/archive/refs/heads/main.zip" target="_blank">
         <img alt="Download zip" src="https://img.shields.io/badge/DOWNLOAD%20ZIP-100000?style=for-the-badge&logo=scan&logoColor=white&labelColor=darkorange&color=darkgreen"/>
     </a>
 </p>
