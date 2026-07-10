@@ -1,1 +1,1 @@
-worker: node --no-warnings --expose-gc --max-old-space-size=1024 --max-semi-space-size=64 --experimental-global-webcrypto fox.js
+web: node --no-warnings --expose-gc --experimental-global-webcrypto index.js
