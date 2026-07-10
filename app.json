@@ -1,16 +1,15 @@
 {
   "name": "FOXY BOT",
-  "description": "Smart WhatsApp Bot powered by AI — auto-fetches and runs the latest bot build on every deploy.",
-  "logo": "https://i.ibb.co/1GqxkwSb/foxybot.png",
-  "keywords": ["whatsapp", "bot", "foxybot", "baileys", "ai", "session"],
-  "repository": "https://github.com/WOLVAREX/FOXY",
-  "website": "https://github.com/WOLVAREX/FOXY",
+  "description": "Professional WhatsApp Bot with auto-session authentication",
+  "logo": "https://i.ibb.co/zWGkw7Jz/767022de0778.png",
+  "keywords": ["whatsapp", "bot", "foxybot", "baileys", "session"],
+  "repository": "https://github.com/sil3nt-wolf/silentwolf.git",
   "scripts": {
-    "start": "node --no-warnings --expose-gc --max-old-space-size=1024 --max-semi-space-size=64 --experimental-global-webcrypto fox.js"
+    "start": "node --no-warnings --experimental-global-webcrypto index.js"
   },
   "env": {
     "SESSION_ID": {
-      "description": "REQUIRED: Your WhatsApp session ID. Must begin with 'FOXY-BOT:'",
+      "description": "REQUIRED: Your WhatsApp session ID. Must begin with 'FOXY-BOT:''",
       "value": "",
       "required": true
     },
@@ -19,58 +18,65 @@
       "value": "",
       "required": false
     },
-    "OWNER_NUMBER": {
-      "description": "OPTIONAL: Your WhatsApp number in international format without + (e.g. 254712345678). Grants owner privileges.",
-      "value": "",
-      "required": false
-    },
-    "BOT_NAME": {
-      "description": "OPTIONAL: Display name shown in menus and messages. Defaults to 'FOXY BOT'.",
-      "value": "FOXY BOT",
-      "required": false
-    },
-    "BOT_PREFIX": {
-      "description": "OPTIONAL: Command prefix (e.g. . or ! or ?). Defaults to '.'.",
-      "value": ".",
-      "required": false
-    },
-    "BOT_MODE": {
-      "description": "OPTIONAL: Operating mode — public, private, group, solo, sudo, super, buttons, or channel. Defaults to 'public'.",
-      "value": "public",
-      "required": false
-    },
-    "BOT_TIMEZONE": {
-      "description": "OPTIONAL: Timezone for time/date display (e.g. Africa/Nairobi, Asia/Kolkata, America/New_York). Defaults to UTC.",
-      "value": "UTC",
-      "required": false
-    },
     "PTERODACTYL_KEY": {
-      "description": "OPTIONAL: Your Pterodactyl Application API key (ptlc_...). Required only for panel commands.",
+      "description": "OPTIONAL: Your Pterodactyl Application API key (ptlc_...). Only needed if you use panel commands.",
       "value": "",
       "required": false
     },
     "PTERODACTYL_URL": {
-      "description": "OPTIONAL: Your Pterodactyl panel URL (e.g. https://panel.example.com). Required only for panel commands.",
+      "description": "OPTIONAL: Your Pterodactyl panel URL (e.g. https://panel.example.com). Only needed if you use panel commands.",
       "value": "",
       "required": false
     },
     "PAYSTACK_KEY": {
-      "description": "OPTIONAL: Your Paystack secret key (sk_live_... or sk_test_...). Required only for payment features.",
+      "description": "OPTIONAL: Your Paystack secret key (sk_live_... or sk_test_...). Only needed for M-Pesa STK push payments.",
+      "value": "",
+      "required": false
+    },
+    "BOT_PREFIX": {
+      "description": "OPTIONAL: Command prefix for the bot (e.g. . or ! or ?). Defaults to '.' if not set. Automatically updated when you use .setprefix.",
+      "value": ".",
+      "required": false
+    },
+    "BOT_MODE": {
+      "description": "OPTIONAL: Bot operating mode. Options: public, private, group, solo, sudo, super, buttons, channel. Defaults to 'public'. Automatically updated when you use .setmode.",
+      "value": "public",
+      "required": false
+    },
+    "BOT_NAME": {
+      "description": "OPTIONAL: Display name for the bot shown in menus and messages. Defaults to 'FOXY BOT'. Automatically updated when you use .setbotname.",
+      "value": "FOXY BOT",
+      "required": false
+    },
+    "BOT_TIMEZONE": {
+      "description": "OPTIONAL: Timezone for time/date display in menus (e.g. Africa/Lagos, Asia/Kolkata, America/New_York). Defaults to UTC. Automatically updated when you use .settimezone.",
+      "value": "UTC",
+      "required": false
+    },
+    "OWNER_NUMBER": {
+      "description": "OPTIONAL: Your WhatsApp number in international format without + (e.g. 2348012345678). Used to scope settings to your bot instance and grant owner privileges.",
       "value": "",
       "required": false
     }
   },
   "formation": {
-    "worker": {
+    "web": {
       "quantity": 1,
       "size": "basic"
     }
   },
   "buildpacks": [
-    { "url": "heroku/nodejs" },
-    { "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git" },
-    { "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git" },
-    { "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git" }
-  ],
-  "stack": "heroku-24"
+    {
+      "url": "heroku-community/apt"
+    },
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    },
+    {
+      "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
+    }
+  ]
 }
