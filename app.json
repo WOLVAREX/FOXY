@@ -2,7 +2,7 @@
 {
   "name": "FOXY",
   "description": "Professional WhatsApp Bot with auto-session authentication",
-  "logo": "https://i.ibb.co/zWGkw7Jz/767022de0778.png",
+  "logo": "https://i.ibb.co/vvDbfpFw/foxybot.png",
   "keywords": ["whatsapp", "bot", "wolfbot", "baileys", "session"],
   "repository": "https://github.com/WOLVAREX/FOXY.git",
   "scripts": {
