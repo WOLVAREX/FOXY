@@ -1,12 +1,12 @@
 {
   "name": "FOXY-BOT",
   "version": "1.0.0",
-"description": "FOXY BOT - Smart WhatsApp Bot powered by AI",
+  "description": "FOXY BOT - Smart WhatsApp Bot powered by AI",
   "keywords": [
     "whatsapp",
     "bot",
     "baileys",
-    "silent-wolf",
+    "silent-wol",
     "auto-restart",
     "prefix",
     "heartbeat",
@@ -22,7 +22,7 @@
     "url": "git+https://github.com/WOLVAREX/FOXY.git"
   },
   "license": "MIT",
-  "author": "WOLVAREX",
+  "author": "WOLFTECH-254",
   "type": "module",
   "main": "index.js",
   "directories": {
