@@ -1,15 +1,16 @@
+
 {
-  "name": "FOXY BOT",
+  "name": "WOLFBOT",
   "description": "Professional WhatsApp Bot with auto-session authentication",
   "logo": "https://i.ibb.co/zWGkw7Jz/767022de0778.png",
-  "keywords": ["whatsapp", "bot", "foxybot", "baileys", "session"],
-  "repository": "https://github.com/sil3nt-wolf/silentwolf.git",
+  "keywords": ["whatsapp", "bot", "wolfbot", "baileys", "session"],
+  "repository": "https://github.com/WOLFTECH-254/silentwolf.git",
   "scripts": {
     "start": "node --no-warnings --experimental-global-webcrypto index.js"
   },
   "env": {
     "SESSION_ID": {
-      "description": "REQUIRED: Your WhatsApp session ID. Must begin with 'FOXY-BOT:''",
+      "description": "REQUIRED: Your WhatsApp session ID. Must begin with 'WOLF-BOT:'",
       "value": "",
       "required": true
     },
@@ -32,31 +33,6 @@
       "description": "OPTIONAL: Your Paystack secret key (sk_live_... or sk_test_...). Only needed for M-Pesa STK push payments.",
       "value": "",
       "required": false
-    },
-    "BOT_PREFIX": {
-      "description": "OPTIONAL: Command prefix for the bot (e.g. . or ! or ?). Defaults to '.' if not set. Automatically updated when you use .setprefix.",
-      "value": ".",
-      "required": false
-    },
-    "BOT_MODE": {
-      "description": "OPTIONAL: Bot operating mode. Options: public, private, group, solo, sudo, super, buttons, channel. Defaults to 'public'. Automatically updated when you use .setmode.",
-      "value": "public",
-      "required": false
-    },
-    "BOT_NAME": {
-      "description": "OPTIONAL: Display name for the bot shown in menus and messages. Defaults to 'FOXY BOT'. Automatically updated when you use .setbotname.",
-      "value": "FOXY BOT",
-      "required": false
-    },
-    "BOT_TIMEZONE": {
-      "description": "OPTIONAL: Timezone for time/date display in menus (e.g. Africa/Lagos, Asia/Kolkata, America/New_York). Defaults to UTC. Automatically updated when you use .settimezone.",
-      "value": "UTC",
-      "required": false
-    },
-    "OWNER_NUMBER": {
-      "description": "OPTIONAL: Your WhatsApp number in international format without + (e.g. 2348012345678). Used to scope settings to your bot instance and grant owner privileges.",
-      "value": "",
-      "required": false
     }
   },
   "formation": {
@@ -66,9 +42,6 @@
     }
   },
   "buildpacks": [
-    {
-      "url": "heroku-community/apt"
-    },
     {
       "url": "heroku/nodejs"
     },
